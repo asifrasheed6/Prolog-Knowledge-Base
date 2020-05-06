@@ -1,0 +1,69 @@
+Q1)
+?- employee(Name, computer_programmer).
+Name = alyssa_hacker ;
+Name = cy_d_fect.
+
+Q2)
+?- address(Name, No, Road), places(cambridge, Road).
+Name = alyssa_hacker,
+No = 78,
+Road = mass_ave ;
+Name = cy_d_fect,
+No = 3,
+Road = ames_street ;
+
+
+Q3)
+?- department(Name, accounting), employee(Name, Job).
+Name = iban_scrooge,
+Job = accounting_chief_accountant ;
+Name = robert_cratchet,
+Job = accounting_scrivener.
+
+Q4)
+?- supervise(Supervisor, Employee), department(Employee, computer).
+Supervisor = ben_bitdiddle,
+Employee = alyssa_hacker ;
+Supervisor = ben_bitdiddle,
+Employee = cy_d_fect ;
+Supervisor = ben_bitdiddle,
+Employee = lem_e_tweakit ;
+Supervisor = alyssa_hacker,
+Employee = louis_reasoner ;
+Supervisor = oliver_warbucks,
+Employee = ben_bitdiddle ;
+
+Q5)
+?- supervise(ben_bitdiddle, Name); supervise(alyssa_hacker, Name).
+Name = alyssa_hacker ;
+Name = cy_d_fect ;
+Name = lem_e_tweakit ;
+Name = louis_reasoner.
+
+Q6)
+?- employee(Name,Title),job(Title,Salary),employee(ben_bitdiddle,BenTitle),job(BenTitle,BenSalary),Salary>BenSalary.
+Name = iban_scrooge,
+Title = accounting_chief_accountant,
+Salary = 75000,
+BenTitle = computer_wizard,
+BenSalary = 60000 ;
+Name = oliver_warbucks,
+Title = administration_big_wheel,
+Salary = 150000,
+BenTitle = computer_wizard,
+BenSalary = 60000 ;
+
+Q7)
+?- employee(Name,Title),job(Title,Salary),job(computer_programmer_trainee,TraineeSalary),Salary<TraineeSalary.
+Name = lem_e_tweakit,
+Title = computer_technician,
+Salary = 25000,
+TraineeSalary = 30000 ;
+Name = robert_cratchet,
+Title = accounting_scrivener,
+Salary = 18000,
+TraineeSalary = 30000 ;
+Name = dewitt_aull,
+Title = administration_secretary,
+Salary = 25000,
+TraineeSalary = 30000.
