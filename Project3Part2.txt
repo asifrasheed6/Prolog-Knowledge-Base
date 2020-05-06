@@ -62,3 +62,31 @@ Salary = 18000 ;
 TraineeSalary = 30000,
 Name = dewitt_aull,
 Salary = 25000.
+
+Q8)
+?- employee(Secretary, administration_secretary, _), neighbour(Employee, Secretary).
+Secretary = dewitt_aull,
+Employee = ben_bitdiddle ;
+Secretary = dewitt_aull,
+Employee = louis_reasoner ;
+
+Q9)
+?- replace(Employee, cy_d_fect).
+Employee = alyssa_hacker ;
+Employee = ben_bitdiddle ;
+
+Q10)
+?- employee(Employee1, _, Salary1), employee(Employee2, _, Salary2), Salary1 < Salary2, replace(Employee1, Employee2).
+Employee1 = cy_d_fect,
+Salary1 = 35000,
+Employee2 = alyssa_hacker,
+Salary2 = 40000 ;
+
+Q11)
+?- bigshot(Employee).
+Employee = iban_scrooge ;
+Employee = ben_bitdiddle.
+
+Q12)
+?- bigshot(Employee), replace(Employee2,Employee).
+false.
