@@ -1,20 +1,22 @@
 Q1)
-?- employee(Name, computer_programmer).
+?- employee(Name, computer_programmer, _).
 Name = alyssa_hacker ;
 Name = cy_d_fect.
 
 Q2)
-?- address(Name, No, Road), places(cambridge, Road).
+?- address(Name, No, Road, Town), Town = cambridge.
 Name = alyssa_hacker,
 No = 78,
-Road = mass_ave ;
+Road = mass_ave,
+Town = cambridge ;
 Name = cy_d_fect,
 No = 3,
-Road = ames_street ;
+Road = ames_street,
+Town = cambridge ;
 
 
 Q3)
-?- department(Name, accounting), employee(Name, Job).
+?- department(Name, accounting), employee(Name, Job, _).
 Name = iban_scrooge,
 Job = accounting_chief_accountant ;
 Name = robert_cratchet,
@@ -41,29 +43,22 @@ Name = lem_e_tweakit ;
 Name = louis_reasoner.
 
 Q6)
-?- employee(Name,Title),job(Title,Salary),employee(ben_bitdiddle,BenTitle),job(BenTitle,BenSalary),Salary>BenSalary.
+?- employee(ben_bitdiddle, _, BenSalary), employee(Name, _, Salary), Salary > BenSalary.
+BenSalary = 60000,
 Name = iban_scrooge,
-Title = accounting_chief_accountant,
-Salary = 75000,
-BenTitle = computer_wizard,
-BenSalary = 60000 ;
-Name = oliver_warbucks,
-Title = administration_big_wheel,
-Salary = 150000,
-BenTitle = computer_wizard,
-BenSalary = 60000 ;
+Salary = 150000 ;
+BenSalary = 60000,
+Name = robert_cratchet,
+Salary = 75000 ;
 
 Q7)
-?- employee(Name,Title),job(Title,Salary),job(computer_programmer_trainee,TraineeSalary),Salary<TraineeSalary.
+?- employee(_, computer_programmer_trainee, TraineeSalary), employee(Name, _, Salary), Salary < TraineeSalary.
+TraineeSalary = 30000,
 Name = lem_e_tweakit,
-Title = computer_technician,
-Salary = 25000,
-TraineeSalary = 30000 ;
-Name = robert_cratchet,
-Title = accounting_scrivener,
-Salary = 18000,
-TraineeSalary = 30000 ;
+Salary = 25000 ;
+TraineeSalary = 30000,
+Name = oliver_warbucks,
+Salary = 18000 ;
+TraineeSalary = 30000,
 Name = dewitt_aull,
-Title = administration_secretary,
-Salary = 25000,
-TraineeSalary = 30000.
+Salary = 25000.
