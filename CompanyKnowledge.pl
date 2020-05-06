@@ -47,4 +47,14 @@ manages(computer,ben_bitdiddle).
 manages(accounting,iban_scrooge).
 manages(administration,oliver_warbucks).
 
+neighbour(Employee1,Employee2):-address(Employee1,_,_,Town),address(Employee2,_,_,Town),not(Employee1=Employee2).
 
+wheel(Supervisor):-supervise(Supervisor,Employee),supervise(Employee,_).
+
+outranked(Employee,Boss):-supervise(Boss,Employee);(supervise(Supervisor,Employee),outranked(Supervisor,Boss)).
+
+replace(Employee1,Employee2):-(employee(Employee1,Job,_),employee(Employee2,Job,_),not(Employee1=Employee2));(employee(Employee1,Job1,_),employee(Employee2,Job2,_),alternate(Job1,Job2)). % Checks if Employee1 could replace Employee 2
+
+bigshot(Employee):-supervise(Supervisor,Employee),department(Employee,Department),not(department(Supervisor,Department)).
+
+indispensable(Employee,Employee2):-not(replace(Employee2,Employee)).
