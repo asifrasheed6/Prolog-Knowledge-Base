@@ -1,5 +1,4 @@
 % Company Knowledge Base
-
 job(computer_wizard,60000).
 job(computer_programmer,40000).
 job(computer_programmer,35000).
