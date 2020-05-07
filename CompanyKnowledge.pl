@@ -58,4 +58,17 @@ replace(Employee1,Employee2):-(employee(Employee1,Job,_),employee(Employee2,Job,
 
 bigshot(Employee):-supervise(Supervisor,Employee),department(Employee,Department),not(department(Supervisor,Department)). % bigshot if supervisor is not from the same department
 
-indispensable(Employee,Employee2):-not(replace(Employee2,Employee)). % indispensable if there is not Employee2 to replace Employee 
+indispensable(Employee,Employee2):-not(replace(Employee2,Employee)). % indispensable if there is no Employee2 to replace Employee
+
+% Meeting information (time in 24 hours)
+meetings(accounting,monday,9).
+meetings(administration,monday,10).
+meetings(computer,wednesday,14).
+meetings(administration,friday,13).
+% Company wide meeting on wednesday at 4pm:
+meetings(accounting,wednesday,16).
+meetings(computer,wednesday,16).
+meetings(administration,wednesday,16).
+
+% Meeting Rules:
+getmeeting(Employee):-meetings(Department,Day,Time),department(Employee,Department),write('Day:'),write(Day),write(', Time:'),write(Time).
