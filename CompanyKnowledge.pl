@@ -60,12 +60,12 @@ bigshot(Employee):-supervise(Supervisor,Employee),department(Employee,Department
 
 indispensable(Employee,Employee2):-not(replace(Employee2,Employee)). % indispensable if there is no Employee2 to replace Employee
 
-% Meeting information (time in 24 hours)
-meetings(accounting,monday,9).
-meetings(administration,monday,10).
-meetings(computer,wednesday,14).
-meetings(administration,friday,13).
-meetings(company,wednesday,16).
+% Meeting information:
+meeting(accounting,monday,'9am').
+meeting(administration,monday,'10am').
+meeting(computer,wednesday,'2pm').
+meeting(administration,friday,'1pm').
+meeting(company,wednesday,'4pm').
 
-% getmeeting retrieves all meetings for the given employee
-getmeeting(Employee):-meetings(Department,Day,Time),department(Employee,Department),write('Day:'),write(Day),write(', Time:'),write(Time).
+% Meeting Rule:
+hasmeeting(Employee,Day,Time):-department(Employee,Department),(meeting(company,Day,Time);meeting(Department,Day,Time)).
