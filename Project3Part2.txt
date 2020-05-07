@@ -90,3 +90,30 @@ Employee = ben_bitdiddle.
 Q12)
 ?- bigshot(Employee), replace(Employee2,Employee).
 false.
+
+Q13)
+?- meeting(_,friday,Time).
+Time = '1pm'.
+
+Q14)
+?- hasmeeting(alyssa_hacker,wednesday,Time).
+Time = '4pm' ;
+Time = '2pm' ;
+
+Q15)
+?- hasmeeting(Employee,monday,_).
+Employee = iban_scrooge ;
+Employee = robert_cratchet ;
+Employee = oliver_warbucks ;
+Employee = dewitt_aull.
+
+Q16)
+?- hasmeeting(Employee1,Day,Time),hasmeeting(Employee2,Day,Time),(Day=monday;Day=wednesday),bigshot(Employee1),bigshot(Employee2),not(Employee1=Employee2).
+Employee1 = ben_bitdiddle,
+Day = wednesday,
+Time = '4pm',
+Employee2 = iban_scrooge ;
+Employee1 = iban_scrooge,
+Day = wednesday,
+Time = '4pm',
+Employee2 = ben_bitdiddle ;
