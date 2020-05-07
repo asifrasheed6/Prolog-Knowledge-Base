@@ -117,3 +117,6 @@ Employee1 = iban_scrooge,
 Day = wednesday,
 Time = '4pm',
 Employee2 = ben_bitdiddle ;
+
+Bonus)
+?- hasmeeting(X,Day,_),hasmeeting(Y,Day,_),not(X=Y).
