@@ -47,14 +47,15 @@ manages(computer,ben_bitdiddle).
 manages(accounting,iban_scrooge).
 manages(administration,oliver_warbucks).
 
-neighbour(Employee1,Employee2):-address(Employee1,_,_,Town),address(Employee2,_,_,Town),not(Employee1=Employee2).
+% Rules
+neighbour(Employee1,Employee2):-address(Employee1,_,_,Town),address(Employee2,_,_,Town),not(Employee1=Employee2). % neighbours if the employees are from the same town
 
-wheel(Supervisor):-supervise(Supervisor,Employee),supervise(Employee,_).
+wheel(Supervisor):-supervise(Supervisor,Employee),supervise(Employee,_). % wheel if supervises a supervisor
 
-outranked(Employee,Boss):-supervise(Boss,Employee);(supervise(Supervisor,Employee),outranked(Supervisor,Boss)).
+outranked(Employee,Boss):-supervise(Boss,Employee);(supervise(Supervisor,Employee),outranked(Supervisor,Boss)). % outranked by boss is he is a direct supervisor or if he outranks the employee's supervisor
 
 replace(Employee1,Employee2):-(employee(Employee1,Job,_),employee(Employee2,Job,_),not(Employee1=Employee2));(employee(Employee1,Job1,_),employee(Employee2,Job2,_),alternate(Job1,Job2)). % Checks if Employee1 could replace Employee 2
 
-bigshot(Employee):-supervise(Supervisor,Employee),department(Employee,Department),not(department(Supervisor,Department)).
+bigshot(Employee):-supervise(Supervisor,Employee),department(Employee,Department),not(department(Supervisor,Department)). % bigshot if supervisor is not from the same department
 
-indispensable(Employee,Employee2):-not(replace(Employee2,Employee)).
+indispensable(Employee,Employee2):-not(replace(Employee2,Employee)). % indispensable if there is not Employee2 to replace Employee 
