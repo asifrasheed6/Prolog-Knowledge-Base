@@ -65,10 +65,7 @@ meetings(accounting,monday,9).
 meetings(administration,monday,10).
 meetings(computer,wednesday,14).
 meetings(administration,friday,13).
-% Company wide meeting on wednesday at 4pm:
-meetings(accounting,wednesday,16).
-meetings(computer,wednesday,16).
-meetings(administration,wednesday,16).
+meetings(company,wednesday,16).
 
 % getmeeting retrieves all meetings for the given employee
 getmeeting(Employee):-meetings(Department,Day,Time),department(Employee,Department),write('Day:'),write(Day),write(', Time:'),write(Time).
