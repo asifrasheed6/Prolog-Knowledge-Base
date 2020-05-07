@@ -70,5 +70,5 @@ meetings(accounting,wednesday,16).
 meetings(computer,wednesday,16).
 meetings(administration,wednesday,16).
 
-% Meeting Rules:
+% getmeeting retrieves all meetings for the given employee
 getmeeting(Employee):-meetings(Department,Day,Time),department(Employee,Department),write('Day:'),write(Day),write(', Time:'),write(Time).
